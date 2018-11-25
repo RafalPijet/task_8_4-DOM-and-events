@@ -1,0 +1,88 @@
+$grey: #747d8c;
+$white: #fff;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $grey;
+  position: relative;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.col-1 {flex: 8.333%;}
+.col-2 {flex: 16.667%;}
+.col-3 {flex: 25%;}
+.col-4 {flex: 33.333%;}
+.col-5 {flex: 41.667%;}
+.col-6 {flex: 50%;}
+.col-7 {flex: 58.333%;}
+.col-8 {flex: 66.667%;}
+.col-9 {flex: 75%;}
+.col-10 {flex: 83.333%;}
+.col-11 {flex: 91.667%;}
+.col-12 {flex: 100%;}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+.main {
+  position: absolute;
+  margin: 0 auto;
+  left: calc(100vw / 4);
+  top: calc(100vh / 4);
+  //background: url("https://images.pexels.com/photos/983200/pexels-photo-983200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") center no-repeat;
+  background-size: cover;
+  border: 3px solid $white;
+
+
+  .layer-front {
+
+    h1 {
+      color: $white;
+    }
+
+    .buttons {
+      width: 100vw;
+
+      button {
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+  }
+}
