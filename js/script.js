@@ -18,6 +18,7 @@
     var userCounter;
     var compCounter;
     var check = false;
+
     var prepareGame = function() {
         userCounter = 0;
         compCounter = 0;
@@ -29,15 +30,18 @@
         showScore();
         info.innerHTML = "select the button";
     }
+
     var resetFaces = function() {
         faceNormal.classList.add("show-face");
         faceLost.classList.add("show-face");
         faceWin.classList.add("show-face");
         faceNoHappy.classList.add("show-face");
     }
+
     var showLog = function(info) {
         myLog.innerHTML = info;
     }
+
     var endGame = function() {
         check = false;
         buttonStart.classList.toggle("hidden");
@@ -57,16 +61,20 @@
         }
         showLog("GAME OVER");
     }
+
     var showScore = function() {
         score.innerHTML = userName + "(" + userCounter + ") vs (" + compCounter + ")Computer";
         showLog("remaining rounds: <strong>" + roundCounter + "</strong>");
     }
+
     var randomCompChoice = function() {
         return Math.round((Math.random()) * 2);
     }
+
     var showInfo = function(userNumber, compNumber, checkScore) {
         var answers = ["you won", "computer won", "draw"];
-        var answer = ": you played " + elements[userNumber].toUpperCase() + ", computer played " + elements[compNumber].toUpperCase();
+        var answer = ": you played " + elements[userNumber].toUpperCase() + ", computer played " + elements[compNumber].
+        toUpperCase();
 
         if (checkScore == "you") {
             info.innerHTML = answers[0].toUpperCase() + answer;
@@ -82,30 +90,21 @@
             faceNoHappy.classList.remove("show-face");
         }
     }
+
     var playerMove = function(userChoice) {
         var compChoice = randomCompChoice();
         faceStart.classList.add("show-face");
 
-        if (userChoice == 0 && compChoice == 1) {
+        if (userChoice === compChoice) {
+            showInfo(userChoice, compChoice, "draw");
+        } else if ((userChoice == 0 && compChoice ==1) ||
+            (userChoice == 1 && compChoice == 2) ||
+            (userChoice == 2 && compChoice == 0)) {
             showInfo(userChoice, compChoice, "you");
             userCounter ++;
-        } else if (userChoice == 0 && compChoice == 2) {
-            showInfo(userChoice, compChoice, "comp");
-            compCounter ++;
-        } else if (userChoice == 1 && compChoice == 2) {
-            showInfo(userChoice, compChoice, "you");
-            userCounter ++;
-        } else if (userChoice == 1 && compChoice == 0) {
-            showInfo(userChoice, compChoice, "comp");
-            compCounter ++;
-        } else if (userChoice == 2 && compChoice == 0) {
-            showInfo(userChoice, compChoice, "you");
-            userCounter ++;
-        } else if (userChoice == 2 && compChoice == 1) {
-            showInfo(userChoice, compChoice, "comp");
-            compCounter ++;
         } else {
-            showInfo(userChoice, compChoice, "draw")
+            showInfo(userChoice, compChoice, "comp");
+            compCounter ++;
         }
         roundCounter --;
 
